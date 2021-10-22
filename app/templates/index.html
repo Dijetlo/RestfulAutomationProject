@@ -2,5 +2,17 @@
 
 {% block content %}
 <h1>Welcome Back {{ current_user.username }}</h1>
+<div>
+    <table align="right" width="50%" border="1px solid #dddddd" ><caption><b>KBA Articles</b></caption>
+        <tr><th style="text-align center; border:1px solid #dddddd, padding: 8px;">Title</th>
+            <th style="text-align center; border:1px solid #dddddd, padding: 8px;">Author</th>
+            <th style="text-align center; border:1px solid #dddddd, padding: 2px;">Date</th></tr>
+    {% for e in KBA %}
+        <tr><td style="text-align left; border:1px solid #dddddd, padding: 8px;">{{ e.title }}</td>
+            <td style="text-align left; border:1px solid #dddddd, padding: 8px;">{{ e.author }}</td>
+            <td style="text-align center; border:1px solid #dddddd, padding: 2px;">{{ e.timestamp }}</td></tr>
+    {% endfor %}
+    </table>
+</div>
 
 {% endblock %}
