@@ -2,7 +2,7 @@ from flask import render_template, flash, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import User
+from app.models import User, KBA
 from werkzeug.urls import url_parse
 
 
@@ -10,7 +10,8 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 @login_required
 def index():
-    return render_template('index.html', title='RAP Project')
+    kba = KBA.query.all()
+    return render_template('index.html', title='RAP Project', KBA=kba)
 
 
 @app.route('/login', methods=['GET', 'POST'])

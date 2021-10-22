@@ -46,5 +46,4 @@ class KBA(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f'''<Title {self.title} - Date {self.timestamp} - Author {self.author}
- {self.body}>'''
+        return f'''Title: {self.title} - Date: {self.timestamp} - Author: {self.author}'''
